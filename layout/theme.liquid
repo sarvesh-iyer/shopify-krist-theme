@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    <title>{{ shop.name }}</title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+  </head>
+
+  <body data-template="{{ template.name }}" data-template-suffix="{{ template.suffix }}" class="page-body h-full">
+    {% section 'header' %}
+    {{ content_for_layout }}
+    {% section 'footer' %}
+  </body>
+</html>
